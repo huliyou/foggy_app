@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 
 
@@ -32,7 +33,8 @@ module.exports = {
     },
     output: {
         path: './',
-        filename: './bin/bundle.js',
+        filename: './bundle.js',
+        //publicPath: path.resolve('asset')
     },
     devServer: {
         contentBase: './',

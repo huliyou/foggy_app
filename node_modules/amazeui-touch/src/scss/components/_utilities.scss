@@ -1,0 +1,107 @@
+// Amaze UI Mobile: Utilities
+// =============================================================================
+
+.#{$namespace}root {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+// Float
+// -----------------------------------------------------------------------------
+.#{$namespace}cf {
+  @include clearfix;
+}
+
+@each $s, $float in (
+  l: left,
+  r: right,
+  n:none) {
+  .#{$namespace}f#{$s} {
+    float: #{$float};
+  }
+}
+
+// Margin & Paddings
+// -----------------------------------------------------------------------------
+$am-spaces: (
+  0: 0,
+  xs: rem-calc(5),
+  sm: rem-calc(10),
+  default: $global-spacing,
+  lg: rem-calc(20),
+  xl: rem-calc(32),
+) !default;
+
+@each $space-key, $space-value in $am-spaces {
+  $padding-selector: 'padding';
+  $margin-selector: 'margin';
+  @if $space-key != 'default' {
+    $padding-selector: $padding-selector + '-' + $space-key;
+  };
+
+  @if $space-key == 'default' {
+    .#{$namespace}#{$padding-selector} {
+      padding: $space-value !important;
+    }
+
+    .#{$namespace}#{$margin-selector} {
+      margin: $space-value !important;
+    }
+  }
+}
+
+// Text helpers
+// -----------------------------------------------------------------------------
+%text-truncate {
+  @include text-overflow();
+}
+
+.#{$namespace}text-truncate {
+  @extend %text-truncate;
+}
+
+// Text Alignment
+@each $align in (left, right, center, justify) {
+  .#{$namespace}text-#{$align} {
+    text-align: $align !important;
+  }
+}
+
+// CSS transition helpers
+// Useb by CollapseMixin
+// -----------------------------------------------------------------------------
+.#{$namespace}fade {
+  opacity: 0;
+  transition: opacity .2s linear;
+  &.#{$namespace}in {
+    opacity: 1;
+  }
+}
+
+.#{$namespace}collapsed {
+}
+
+.#{$namespace}collapse {
+  display: none;
+
+  &.#{$namespace}in {
+    display: block;
+  }
+}
+
+tr.#{$namespace}collapse.#{$namespace}in {
+  display: table-row;
+}
+
+tbody.#{$namespace}collapse.#{$namespace}in {
+  display: table-row-group;
+}
+
+.#{$namespace}collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height .3s ease;
+}

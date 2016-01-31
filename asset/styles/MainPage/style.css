@@ -1,0 +1,26 @@
+
+.MainPage_default {
+    background-image: url(/asset/images/bg2@3x.png);
+    background-size: cover;
+    height: 100vh;
+
+}
+
+.MainPage_transform {
+    height: 100vh;
+    background-image: url(/asset/images/bg2@3x.png);
+    background-size: cover;
+    transform: translateX(80%);
+    transition: transform 0.5s ease-in-out;
+    overflow-x: hidden;
+    /*margin-top: -50px;*/
+}
+
+
+.data_panel {
+    margin-top: 80px;
+    height: 20vh;
+    width: 40vh;
+    background-color: rgba(200,200,200,0.3);
+    border-radius: 30px;
+}

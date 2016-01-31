@@ -1,0 +1,40 @@
+.CitiesSettings {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    background-image: url(/asset/images/bg@3x.png);
+    background-size: cover;
+}
+
+.navigator_add{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: rgba(50,50,50,0.4);
+    height: 50px;
+}
+
+.add_button, .add_button:hover{
+    height: 50px;
+    width: 50px;
+    background-color: rgba(50,50,50,0.1);
+}
+
+.cell {
+    width: 100%;
+    height: 50px;
+    font-size: larger;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.cell_box {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+

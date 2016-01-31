@@ -1,0 +1,30 @@
+.Navigator {
+    background-color: rgba(46,48,50,0.1);
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.nav_title {
+    font-size: 20px;
+    margin: 10px auto;
+}
+
+
+.left_button, .left_button:hover, .left_button:active, .left_button:focus{
+    height: 50px;
+    width: 50px;
+    background-color: rgba(46,48,50,0.1);
+}
+
+
+
+
+.right_button, .right_button:hover{
+    height: 50px;
+    width: 50px;
+    background-color: rgba(46,48,50,0.1);
+}

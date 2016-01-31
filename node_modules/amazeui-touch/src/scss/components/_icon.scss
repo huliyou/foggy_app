@@ -1,0 +1,43 @@
+// Amaze UI Mobile: Icons
+//
+// @via https://github.com/twbs/ratchet/tree/master/fonts
+// @licence MIT
+// =============================================================================
+
+// Output
+// -----------------------------------------------------------------------------
+@font-face {
+  font-family: Ratchicons;
+  font-weight: normal;
+  font-style: normal;
+  src: url('#{$icon-path}ratchicons.woff') format('woff'),
+  url('#{$icon-path}ratchicons.ttf') format('truetype'),
+  url('#{$icon-path}ratchicons.svg#svgFontName') format('svg');
+}
+
+%font-icon {
+  display: inline-block;
+  font-family: Ratchicons, sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.#{$icon-prefix} {
+  @extend %font-icon;
+
+  .#{$button-prefix} & {
+    font-size: inherit;
+  }
+}
+
+// @see https://github.com/sass/sass/issues/659#issuecomment-119285467
+@each $icon-name, $icon-code in $icons {
+  .#{$icon-prefix}-#{$icon-name} {
+    &:before {
+      content: unquote('"#{$icon-code}"');
+    }
+  }
+}

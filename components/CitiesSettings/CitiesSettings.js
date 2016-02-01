@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import style from '../../asset/styles/CitiesSettings.css';
+import style from '../../asset/styles/CitiesSettingsPage/CitiesSettings.css';
 
 import {Button} from 'react-bootstrap'
 

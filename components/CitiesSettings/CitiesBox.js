@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../asset/styles/CitiesSettings.css';
+import styles from '../../asset/styles/CitiesSettingsPage/CitiesSettings.css';
 
 import {Container} from 'amazeui-touch';
 

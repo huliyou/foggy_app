@@ -18,9 +18,10 @@ class App extends React.Component {
     render() {
         return(
             <div className="App">
+                {console.log('this.props', this.props)}
                 <MainPageContainer />
                 {/*<MainPageContainer get_local_position={() => this.props.dispatch(get_local_position())} left_toggle_action={() => this.props.dispatch(toggle_left())} left_toggle={this.props.MainPage.left_toggle} state={this.props.MainPage}/>*/}
-                <CitiesSettingsContainer />
+                <CitiesSettingsContainer children={this.props.children} />
             </div>
 
         )

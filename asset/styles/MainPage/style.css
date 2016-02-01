@@ -3,7 +3,7 @@
     background-image: url(/asset/images/bg2@3x.png);
     background-size: cover;
     height: 100vh;
-
+    z-index: 999;
 }
 
 .MainPage_transform {
@@ -14,6 +14,7 @@
     transition: transform 0.5s ease-in-out;
     overflow-x: hidden;
     /*margin-top: -50px;*/
+    z-index: 999;
 }
 
 

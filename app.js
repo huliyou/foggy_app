@@ -8,10 +8,19 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var cors = require('cors');
+
 var citiesRouter = require('./routes/api/cities');
 var stationsRouter = require('./routes/api/station_names');
 var pm25Router = require('./routes/api/pm25');
 var all_by_staionRouter = require('./routes/api/all_by_station');
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/photo_app');
+var db = mongoose.connection;
+db.once('open', function() {
+  console.log('connected');
+});
 
 var app = express();
 
@@ -31,10 +40,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/api/cities',citiesRouter);
-app.use('/api/station_names',stationsRouter);
-app.use('/api/pm2_5', pm25Router);
-app.use('/api/all_by_station', all_by_staionRouter);
+app.use('/api/cities',cors(),citiesRouter);
+app.use('/api/station_names',cors(),stationsRouter);
+app.use('/api/pm2_5',cors(), pm25Router);
+app.use('/api/all_by_station',cors(), all_by_staionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

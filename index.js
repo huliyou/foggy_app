@@ -29,7 +29,10 @@ const createStoreWithMiddleware = applyMiddleware(
 //    thunkMiddleware
 //)(createStore);
 
-const store = createStoreWithMiddleware(reducers);
+const store = createStoreWithMiddleware(
+    reducers,
+    window.devToolsExtension ? window.devToolsExtension() : undefined
+);
 console.log('store',store.getState());
 
 class App extends React.Component {

@@ -8,6 +8,7 @@ import $ from 'jquery';
 // cities actions
 import * as citiesSettingsActioins from './CitiesSettingsActions';
 import * as AddCityActions from './AddCityActions';
+import * as GetCityInfoActions from './GetCityInfoActions';
 
 export const Get_Local_Position_Request = 'Get_Local_Position_Request';
 export const Get_Local_Position_Success = 'Get_Local_Position_Success';
@@ -32,7 +33,10 @@ export function get_local_position() {
                         dispatch(get_local_position_success(pos, city))
                         dispatch(citiesSettingsActioins.setPreferedCity(city))
                         dispatch(AddCityActions.addCity(city));
+                        //开始获取该城市的环境信息
+                        dispatch(GetCityInfoActions.getCityInfo(city));
                     }
+                    // 根据获取的地理位置,设置初始城市信息
                     _getPositionCityName(pos,callback);
                 },
                 // failure callback
@@ -48,7 +52,12 @@ function result(data) {
     "use strict";
     console.log(data);
 }
-
+/**
+ * 根据获取的地理位置,设置初始城市信息
+ * @param position 坐标
+ * @param callback
+ * @private
+ */
 function _getPositionCityName(position,callback) {
     var cityName = '';
     "use strict";

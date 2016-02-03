@@ -1,35 +1,34 @@
 import * as initAction from '../actions/InitActions';
+import Immutable from 'immutable';
 
-//{
-//    isFetching: bool,
-//    cityName:'',
-//    position: {
-//        Latitude: number,
-//        Longitude: number,
-//    }
-//    error: bool
-//}
 
-export default function Init(state={
+var defaultState = Immutable.Map({
     isFetching: false,
-    position: undefined,
-    cityName:'',
-    error: false
-},action) {
+    position: Immutable.Map({
+        Latitude: null,
+        Longtitude: null
+    }),
+    cityName:null,
+    error: false,
+    errorMessage: null
+})
+
+
+export default function Init(state=defaultState,action) {
     switch (action.type) {
         case initAction.Get_Local_Position_Request:
-            return Object.assign({},state,{isFetching:true});
+            return state.set('isFetching',true);
         case initAction.Get_Local_Position_Success:
-            return Object.assign({},state,{
-                isFetching: false,
-                position: action.position,
-                cityName:action.cityName,
-            })
+            return (
+                state.set('isFetching',false)
+                    .setIn(['position','Latitude'],action.position.Latitude)
+                    .setIn(['position','Longtitude'],action.position.Longtitude)
+                    .set('cityName',action.cityName)
+            );
         case initAction.Get_Local_Position_Failure:
-            return Object.assign({},state,{
-                isFetching: false,
-                error: true
-            })
+            return state.set('isFetching',false)
+                .set('error',true)
+                .set('errorMessage','无法获取当前位置')
         default:
             return state
     }

@@ -30,11 +30,10 @@ class  MainPage extends React.Component{
             <div className={this.left_toggle()? 'MainPage_transform':'MainPage_default'}>
                 <Navigator left_toggle_action={this.props.left_toggle_action}/>
                 <div className="container city_panel_container">
-                        {this.props.citiesProps.get("preferedCityName") == null? <CityPanel cityName="定位城市中..."/>:<CityPanel cityName={this.props.citiesProps.get("preferedCityName")} />}
+                        {/*this.props.citiesProps.get("preferedCityName") == null? <CityPanel cityName="定位城市中..."/>:<CityPanel cityName={this.props.citiesProps.get("preferedCityName")} />*/}
+                    <CityPanel Cities={this.props.citiesProps}/>
                 </div>
-                <div className="container data_panel">
-                    data table
-                </div>
+
             </div>
         );
     }

@@ -10,9 +10,11 @@ export function getCityInfoRequest() {
     })
 }
 
-export function getCityInfoSuccess(info) {
+export function getCityInfoSuccess(cityName,info) {
     return ({
-        type: GET_CITY_INFO_SUCCESS
+        type: GET_CITY_INFO_SUCCESS,
+        cityName:cityName,
+        info:info,
     })
 }
 
@@ -22,15 +24,21 @@ export function getCityInfoFailure() {
     })
 }
 
-export function getCityInfo(cityName) {
+/**
+ * 根据城市名称,获取该城市的环境信息
+ * @param cityName 城市名称
+ * @returns {Function}
+ */
+export function getCityInfo(cityName:string) {
     return function(dispatch) {
         dispatch(getCityInfoRequest());
         //120.27.113.239/api/pm2_5?city=北京&avg=true&stations=no
         fetch(AppInfo.webservice_url + '/api/pm2_5?' +'city='+cityName +'&avt=true'+'&stations=no')
-        .then(response => response.json)
+        .then(response => response.json())
         .then(json => {
+            console.log('环境信息:...',json);
             if(json[0]) {
-                dispatch(getCityInfoSuccess(json[0]))
+                dispatch(getCityInfoSuccess(cityName,json[0]))
             }else {
                 dispatch(getCityInfoFailure());
             }

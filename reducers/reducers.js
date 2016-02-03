@@ -11,6 +11,7 @@ const appReducers = combineReducers({
     Init,
     Cities,
     CitiesList,
+    routing:routeReducer,
 });
 
 export default appReducers;

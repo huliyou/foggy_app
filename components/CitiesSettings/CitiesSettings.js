@@ -10,9 +10,9 @@ import style from '../../asset/styles/CitiesSettingsPage/CitiesSettings.css';
 import {Container} from 'amazeui-touch'
 
 import Navigator from './Navigator';
-import CitiesBox from './CitiesBox';
 import InitPage from '../common/InitPage';
 import CitiesList from './CitiesList';
+import SelectedCitiesList from './SelectedCitiesList';
 
 class CitiesSettings extends React.Component {
     isInit() {
@@ -26,7 +26,7 @@ class CitiesSettings extends React.Component {
         else if(this.props.citiesProps.get('items').count() > 0){
             return (
                 <Container className="selected_cities_list">
-                    <CitiesList  cities={this.props.citiesProps.get('items')}/>
+                    <SelectedCitiesList cities={this.props.citiesProps.get('items')}/>
                 </Container>
             )
         }else {
@@ -37,7 +37,7 @@ class CitiesSettings extends React.Component {
     render() {
         return(
             <div className="CitiesSettings" style={this.props.left_toggle ? {zIndex:0} :{zIndex:-999}}>
-                <Navigator />
+                <Navigator dispatch={this.props.dispatch}/>
                 {this.isInit()}
 
             </div>

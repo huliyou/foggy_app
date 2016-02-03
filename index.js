@@ -33,17 +33,20 @@ const store = createStoreWithMiddleware(
     reducers,
     window.devToolsExtension ? window.devToolsExtension() : undefined
 );
+
+reduxRouterMiddleware.listenForReplays(store)
+
 console.log('store',store.getState());
 
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                {this.props.children}
-            </div>
-        )
-    }
-}
+//class App extends React.Component {
+//    render() {
+//        return (
+//            <div>
+//                {this.props.children}
+//            </div>
+//        )
+//    }
+//}
 
 import styles from './asset/styles/CitiesSettingsPage/CitiesSettings.css';
 
@@ -51,7 +54,6 @@ import AddCityPage from './components/CitiesSettings/AddCityPage';
 
 render(
     <Provider store={store}>
-        {/*<Apps />*/}
         <Router history={browserHistory}>
             <Route path="/" component={Apps}>
                 <Route path="addCity" component={AddCityPage}>

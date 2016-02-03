@@ -8,7 +8,6 @@ import * as mainPageActions from '../actions/MainPageActions';
 import * as InitActions from '../actions/InitActions';
 
 
-//<MainPageContainer get_local_position={() => this.props.dispatch(get_local_position())} left_toggle_action={() => this.props.dispatch(toggle_left())} left_toggle={this.props.MainPage.left_toggle} state={this.props.MainPage}/>
 class CitiesSettingsContainer extends React.Component {
     showContent() {
         if(this.props.children) {
@@ -20,6 +19,7 @@ class CitiesSettingsContainer extends React.Component {
                         left_toggle = {this.props.MainPage.left_toggle}
                         initProps = {this.props.Init}
                         citiesProps = {this.props.Cities}
+                        dispatch = {this.props.dispatch}
                     />
                 </div>
             )
@@ -38,7 +38,8 @@ function mapStateToProps(state,props) {
     return {
         Init: state.Init,
         Cities: state.Cities,
-        MainPage: state.MainPage
+        MainPage: state.MainPage,
+        dispatch: state.dispatch
     }
 }
 

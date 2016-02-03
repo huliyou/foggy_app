@@ -7,10 +7,16 @@
 
 import * as citiesSettingsActions from '../actions/CitiesSettingsActions'
 import * as AddCityActions from '../actions/AddCityActions'
+import * as GetCityInfoActions from '../actions/GetCityInfoActions';
 import Immutable from 'immutable';
 
 let defaultState = Immutable.Map({
     preferedCityName: null,
+    preferedCityInfo: Immutable.Map({
+        isFetching: false,
+        info:Immutable.Map(),
+        errorMessage: null
+    }),
     items:Immutable.List()
 })
 
@@ -29,6 +35,14 @@ export default function Cities(
                 return state;
             }
             return state.updateIn(['items'], items => items.push(action.addCityName));
+
+        case GetCityInfoActions.GET_CITY_INFO_REQUEST:
+            return state.updateIn(
+                ['preferedCityInfo','isFetching'],
+                (isFetching)=> {isFetching=true}
+            );
+
+
         default:
             return state;
     }

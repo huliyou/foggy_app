@@ -13,15 +13,17 @@
     transform: translateX(80%);
     transition: transform 0.5s ease-in-out;
     overflow-x: hidden;
-    /*margin-top: -50px;*/
     z-index: 999;
 }
 
+.city_panel_container {
+    width: 100%;
+}
 
 .data_panel {
     margin-top: 80px;
     height: 20vh;
-    width: 40vh;
+    width: 80vw;
     background-color: rgba(200,200,200,0.3);
     border-radius: 30px;
 }

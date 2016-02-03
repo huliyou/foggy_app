@@ -5,10 +5,11 @@
     text-align: center;
 }
 
-.city_panel {
+.city_panel{
     margin-top: 80px;
     height: 40vh;
-    width: 40vh;
+    /*width: 80vw;*/
+    width: 80vw;
     background-color: rgba(200,200,200,0.3);
     border-radius: 30px;
 }

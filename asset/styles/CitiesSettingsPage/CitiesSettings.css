@@ -4,7 +4,6 @@
     left: 0;
     width: 80%;
     height: 100%;
-    text-align: center;
     background-image: url(/asset/images/bg@3x.png);
     background-size: cover;
 }
@@ -20,21 +19,15 @@
 }
 
 .add_button, .add_button:hover{
+    border: none;
     height: 50px;
     width: 50px;
     background-color: rgba(50,50,50,0.1);
 }
 
-.cell {
+.selected_cities_list {
     width: 100%;
-    height: 50px;
-    font-size: larger;
-    background-color: rgba(255,255,255,0.3);
+    margin-top:50px;
 }
 
-.cell_box {
-    width: 100%;
-    margin-top: 60px;
-    margin-bottom: 20px;
-}
 

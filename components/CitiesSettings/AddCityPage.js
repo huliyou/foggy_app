@@ -41,11 +41,13 @@ class AddCityPage extends  React.Component {
                             }
                         }
                     }
-                    title="选择城市"
                 />
 
-                <Container scrollable={true}>
-                    <CitiesList cities={this.props.CitiesList.get('cities')} />
+                <Container className="add_cities_list" scrollable={true} >
+                    <CitiesList
+                        cities={this.props.CitiesList.get('cities')}
+                        dispatch = {this.props.dispatch}
+                    />
                 </Container>
 
 

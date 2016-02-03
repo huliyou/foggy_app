@@ -7,3 +7,12 @@
     background-image: url(/asset/images/bg@3x.png);
     background-size: cover;
 }
+
+.add_cities_list {
+    width:100%;
+    padding-bottom: 100px;
+}
+
+.cities_list{
+    margin-top: 0px;
+}

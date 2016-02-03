@@ -15,6 +15,7 @@
 
 
 .left_button, .left_button:hover, .left_button:active, .left_button:focus{
+    border: none;
     height: 50px;
     width: 50px;
     background-color: rgba(46,48,50,0.1);
@@ -24,6 +25,7 @@
 
 
 .right_button, .right_button:hover{
+    border: none;
     height: 50px;
     width: 50px;
     background-color: rgba(46,48,50,0.1);

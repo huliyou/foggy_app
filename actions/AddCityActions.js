@@ -5,6 +5,7 @@ export const Get_Cities_List_Request = 'Get_Cities_List_Request';
 export const Get_Cities_List_Success = 'Get_Cities_List_Success';
 export const Get_Cities_List_Failure= 'Get_Cities_List_Failure';
 
+export const ADD_CITY = 'ADD_CITY';
 
 export function getCitiesListRequest() {
     return {
@@ -35,11 +36,18 @@ export function getCitiesList() {
             if(json.error) {
                 //dispatch(getCitiesListFailure())
                 // 假数据
-                dispatch(getCitiesListSuccess(['北京市','大连市']));
+                dispatch(getCitiesListSuccess(['北京','大连']));
             }else{
                 dispatch(getCitiesListSuccess(json['cities']))
             }
 
         })
     }
+}
+
+export function addCity(cityName) {
+    return ({
+        type: ADD_CITY,
+        addCityName: cityName
+    })
 }

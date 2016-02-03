@@ -16,8 +16,8 @@ import InitPage from '../common/InitPage';
 import CityPanel from './CityPanel';
 
 class  MainPage extends React.Component{
-
-    componentWillMount() {
+    constructor(props) {
+        super(props);
         this.props.get_local_position()
     }
 
@@ -29,8 +29,8 @@ class  MainPage extends React.Component{
         return (
             <div className={this.left_toggle()? 'MainPage_transform':'MainPage_default'}>
                 <Navigator left_toggle_action={this.props.left_toggle_action}/>
-                <div className="container contentTest">
-                        {this.props.citiesProps["preferedCityName"] == undefined? <CityPanel cityName="定位城市中..."/>:<CityPanel cityName={this.props.citiesProps["preferedCityName"]} />}
+                <div className="container city_panel_container">
+                        {this.props.citiesProps.get("preferedCityName") == null? <CityPanel cityName="定位城市中..."/>:<CityPanel cityName={this.props.citiesProps.get("preferedCityName")} />}
                 </div>
                 <div className="container data_panel">
                     data table

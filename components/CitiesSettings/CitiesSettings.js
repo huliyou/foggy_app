@@ -7,11 +7,12 @@
 import React from 'react';
 import style from '../../asset/styles/CitiesSettingsPage/CitiesSettings.css';
 
-import {Button} from 'react-bootstrap'
+import {Container} from 'amazeui-touch'
 
 import Navigator from './Navigator';
 import CitiesBox from './CitiesBox';
 import InitPage from '../common/InitPage';
+import CitiesList from './CitiesList';
 
 class CitiesSettings extends React.Component {
     isInit() {
@@ -21,16 +22,24 @@ class CitiesSettings extends React.Component {
                     isFetching = {this.props.initProps['isFetching']}
                 />
             )
+        }
+        else if(this.props.citiesProps.get('items').count() > 0){
+            return (
+                <Container className="selected_cities_list">
+                    <CitiesList  cities={this.props.citiesProps.get('items')}/>
+                </Container>
+            )
         }else {
-            return <CitiesBox />
+            return <div></div>
         }
     }
 
     render() {
         return(
-            <div className="container CitiesSettings" style={this.props.left_toggle ? {zIndex:0} :{zIndex:-999}}>
+            <div className="CitiesSettings" style={this.props.left_toggle ? {zIndex:0} :{zIndex:-999}}>
                 <Navigator />
                 {this.isInit()}
+
             </div>
         );
     }

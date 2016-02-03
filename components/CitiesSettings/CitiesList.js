@@ -1,6 +1,9 @@
 import React from 'react';
 import {List} from 'amazeui-touch';
 
+import * as AddCityActions from '../../actions/AddCityActions';
+import {routeActions} from 'react-router-redux';
+
 class CitiesList extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +16,13 @@ class CitiesList extends React.Component {
         var ListItems = [];
         this.props.cities.forEach(
             (v,i) => ListItems.push(
-                <List.Item title={v}/>
+                <List.Item
+                    title={v}
+                    onClick={(e)=>{
+                        this.props.dispatch(AddCityActions.addCity(v));
+                        this.props.dispatch(routeActions.goBack());
+                    }}
+                />
             )
         )
         return ListItems;
@@ -21,7 +30,7 @@ class CitiesList extends React.Component {
 
     render() {
         return (
-            <List>
+            <List className="cities_list">
                 {this.listItems()}
             </List>
         )

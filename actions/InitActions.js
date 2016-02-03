@@ -7,6 +7,7 @@ import $ from 'jquery';
 
 // cities actions
 import * as citiesSettingsActioins from './CitiesSettingsActions';
+import * as AddCityActions from './AddCityActions';
 
 export const Get_Local_Position_Request = 'Get_Local_Position_Request';
 export const Get_Local_Position_Success = 'Get_Local_Position_Success';
@@ -30,6 +31,7 @@ export function get_local_position() {
                     let callback = (pos,city) => {
                         dispatch(get_local_position_success(pos, city))
                         dispatch(citiesSettingsActioins.setPreferedCity(city))
+                        dispatch(AddCityActions.addCity(city));
                     }
                     _getPositionCityName(pos,callback);
                 },
@@ -64,6 +66,10 @@ function _getPositionCityName(position,callback) {
     .then(json => {
         console.log(json['result']['addressComponent']['city']);
         let cityName = json['result']['addressComponent']['city'];
+        // 百度API返回的城市名以'市'结尾,要去掉
+        if(cityName.includes('市')) {
+            cityName = cityName.slice(0,-1);
+        }
         callback(position,cityName);
         //dispatch(get_local_position_success(pos,cityName))
     });

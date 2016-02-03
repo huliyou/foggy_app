@@ -19,6 +19,7 @@ class CitiesSettingsContainer extends React.Component {
                     <CitiesSettingsPage
                         left_toggle = {this.props.MainPage.left_toggle}
                         initProps = {this.props.Init}
+                        citiesProps = {this.props.Cities}
                     />
                 </div>
             )

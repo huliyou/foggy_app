@@ -17,6 +17,11 @@ var app = express();
 
 app.set('AppKey','5j1znBVAsnSf5xQyNQyq');
 
+app.get('/', function (req, res) {
+  res.sendfile('./static/index.html');
+});
+app.listen(3000);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amaze UI</title>
+  <link rel="stylesheet" href="http://cdn.gbtags.com/amazeui/2.0.0/amazeui.css">
+  <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.gbtags.com/amazeui/2.4.2/amazeui.min.js"></script>
+  <script type="text/javascript" src="angular/angular.js"></script>
+</head>
+<style type="text/css">
+html,body{ 
+margin:0px; 
+height:100%; 
+} 
+body{position: relative; width: 100%;overflow:scroll;overflow-x:hidden}
+.container{position: relative; width: 100%; height: 100%}
+.page1{position: absolute; -webkit-transform: translate3d(0, 0, 0); width: 100%; height: 100%; background: url(photos/bg@3x.png) no-repeat left top; background-attachment: fixed;}
+.page2{position: absolute; -webkit-transform: translate3d(-100%, 0, 0); width: 100%; height: 100%; background: url(photos/bg2@1x.png) no-repeat left top; background-attachment: fixed;}
+.page3{position: absolute; -webkit-transform: translate3d(-200%, 0, 0); width: 100%; height: 100%}
+.activeL{-webkit-transform: translate3d(100%, 0, 0);
+         -webkit-transition: cubic-bezier(0.42, 0, 0.58, 1) 0.1s;
+         }
+.activeR{-webkit-transform: translate3d(0, 0, 0);
+         -webkit-transition: cubic-bezier(0.42, 0, 0.58, 1) 0.1s;
+         }
+.activeA{-webkit-transform: translate3d(200%, 0, 0);
+         -webkit-transition: cubic-bezier(0.42, 0, 0.58, 1) 0.1s;
+         }
+.grad {
+        background: -webkit-linear-gradient(#E6E6E6, #FFFFFF); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(#E6E6E6, #FFFFFF); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(#E6E6E6, #FFFFFF); /* Firefox 3.6 - 15 */
+        background: linear-gradient(#E6E6E6, #FFFFFF); /* 标准的语法 */
+        font-size: 20px;
+}
+.widthC{width: 90%; 
+        align: center;
+        background-color: #A6BFDB;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -o-border-radius: 5px;
+        -moz-border-radius: 5px;
+        padding:15px;
+      }
+.color-white{color:#EEE; opacity: 0.6;}
+.mrg-top{margin-top: 15px;}
+.ft-size{font-size:20px;}
+</style>
+<body >
+  <div class="container">
+    <div class="page1">
+      <header class="am-topbar">
+        <button class="am-btn am-icon-navicon am-btn-link am-btn-sm am-margin-left-sm am-topbar-btn am-radius " id="btn-left"></button>  
+        <button class="am-btn am-btn-link am-topbar-btn am-btn-sm am-topbar-toggle am-icon-gear am-radius "></button>  
+      </header>
+
+
+    <div class="page2" ng-app = "myApp" ng-controller= "customersCtrl">
+      <header class="am-topbar">   
+        <button class="am-btn am-icon-plus am-btn-link am-btn-sm am-margin-left-sm am-topbar-btn " id="btn-addC"></button> 
+        <button class="am-btn am-btn-link am-topbar-btn am-btn-sm am-topbar-toggle am-icon-chevron-right am-radius am-icon-sm" id="btn-right"></button>   
+      </header>
+      <div class="am-g am-g-fixed am-margin-bottom-sm widthC ft-size">
+        <div class="am-u-sm-12" ng-repeat ="x in citys"><span>{{x}}</span> <span class="am-fr">107 轻度污染</span></div>
+      
+      </div>
+    </div>
+
+
+    <div class="page3">
+      <header class="am-topbar">
+        <button class="am-btn am-btn-link am-topbar-btn am-btn-sm am-topbar-toggle am-icon-chevron-right am-radius am-icon-sm" id="btn-right2"></button>   
+      </header>
+
+      <div class="am-g">
+        <div class="am-u-lg-6">
+          <div class="am-input-group am-input-group-primary">
+            <span class="am-input-group-btn">
+              <button class="am-btn am-btn-primary" type="button"><span class="am-icon-search"></span></button>
+            </span>
+            <input type="text" class="am-form-field">
+          </div>
+        </div>
+      </div>
+
+      <hr data-am-widget="divider" class="am-divider am-divider-default" />
+
+      <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs">
+          <li class="am-active"><a href="#tab1">A~G</a></li>
+          <li><a href="#tab2">H~L</a></li>
+          <li><a href="#tab3">M~T</a></li>
+          <li><a href="#tab4">W~Z</a></li>
+        </ul>
+
+        <div class="am-tabs-bd font\-color">
+          <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+            <dt>A</dt>
+              <dd>
+                <a href="/anning">安宁</a>
+                <a href="/ankang">安康</a>
+                <a href="/anshun">安顺</a>
+                <a href="/anyang">安阳</a>
+                <a href="/anqing">安庆</a>
+                <a href="/anshan">鞍山</a>
+              </dd>
+              <dt>B</dt>
+              <dd>
+                <a href="/bijie">毕节</a>
+                <a href="/bazhou">霸州</a>
+                <a href="/bazhong">巴中</a>
+                <a href="/baishan">白山</a>
+                <a href="/baoshan">保山</a>
+                <a href="/baise">百色</a>
+                <a href="/bayannaoer">巴彦淖尔</a>
+                <a href="/baiyin">白银</a>
+                <a href="/bozhou">亳州</a>
+                <a href="/beihai">北海</a>
+                <a href="/benxi">本溪</a>
+                <a href="/bangbu">蚌埠</a>
+                <a href="/baoding">保定</a>
+                <a href="/binzhou">滨州</a>
+                <a href="/baotou">包头</a>
+                <a href="/baoji">宝鸡</a>
+                <a href="/beijing">北京</a>
+              </dd>
+              <dt>C</dt>
+              <dd>
+                <a href="/conghua">从化</a>
+                <a href="/changge">长葛</a>
+                <a href="/chibi">赤壁</a>
+                <a href="/chengde">承德</a>
+                <a href="/changji">昌吉</a>
+                <a href="/chizhou">池州</a>
+                <a href="/chaohu">巢湖</a>
+                <a href="/changzhi">长治</a>
+                <a href="/chifeng">赤峰</a>
+                <a href="/chaozhou">潮州</a>
+                <a href="/chuzhou">滁州</a>
+                <a href="/cangzhou">沧州</a>
+                <a href="/changshu">常熟</a>
+                <a href="/chenzhou">郴州</a>
+                <a href="/changde">常德</a>
+                <a href="/changzhou">常州</a>
+                <a href="/changchun">长春</a>
+                <a href="/changsha">长沙</a>
+                <a href="/chuxiong">楚雄</a>
+                <a href="/cixi">慈溪</a>
+                <a href="/chengdu">成都</a>
+                <a href="/chongqing">重庆</a>
+              </dd>
+              <dt>D</dt>
+              <dd>
+                <a href="/dunhuang">敦煌</a>
+                <a href="/dafeng">大丰</a>
+                <a href="/duyun">都匀</a>
+                <a href="/dongyang">东阳</a>
+                <a href="/donggang">东港</a>
+                <a href="/diqing">迪庆</a>
+                <a href="/danjiangkou">丹江口</a>
+                <a href="/dashiqiao">大石桥</a>
+                <a href="/danyang">丹阳</a>
+                <a href="/dingxi">定西</a>
+                <a href="/dujiangyan">都江堰</a>
+                <a href="/dazhou">达州</a>
+                <a href="/datong">大同</a>
+                <a href="/daqing">大庆</a>
+                <a href="/dandong">丹东</a>
+                <a href="/dezhou">德州</a>
+                <a href="/deyang">德阳</a>
+                <a href="/dongying">东营</a>
+                <a href="/dali">大理</a>
+                <a href="/dalian">大连</a>
+                <a href="/dongguan">东莞</a>
+              </dd>
+              <dt>E</dt>
+              <dd>
+                <a href="/eerduosi">鄂尔多斯</a>
+                <a href="/ezhou">鄂州</a>
+                <a href="/enshi">恩施</a>
+              </dd>
+              <dt>F</dt>
+              <dd>
+                <a href="/fujian2">福建</a>
+                <a href="/fuqing">福清</a>
+                <a href="/fuyang1">阜阳</a>
+                <a href="/fuzhou1">抚州</a>
+                <a href="/fangchenggang">防城港</a>
+                <a href="/fuxin">阜新</a>
+                <a href="/fushun">抚顺</a>
+                <a href="/fuyang">富阳</a>
+                <a href="/foshan">佛山</a>
+                <a href="/fuzhou">福州</a>
+              </dd>
+              <dt>G</dt>
+              <dd>
+                <a href="/gaizhou">盖州</a>
+                <a href="/guyuan">固原</a>
+                <a href="/gaoyou">高邮</a>
+                <a href="/guanghan">广汉</a>
+                <a href="/guigang">贵港</a>
+                <a href="/ganzhou">赣州</a>
+                <a href="/guiyang">贵阳</a>
+                <a href="/guilin">桂林</a>
+                <a href="/guangzhou">广州</a>
+              </dd>
+            </dl><dt>A</dt>
+              <dd>
+                <a href="/anning">安宁</a>
+                <a href="/ankang">安康</a>
+                <a href="/anshun">安顺</a>
+                <a href="/anyang">安阳</a>
+                <a href="/anqing">安庆</a>
+                <a href="/anshan">鞍山</a>
+              </dd>
+              <dt>B</dt>
+              <dd>
+                <a href="/bijie">毕节</a>
+                <a href="/bazhou">霸州</a>
+                <a href="/bazhong">巴中</a>
+                <a href="/baishan">白山</a>
+                <a href="/baoshan">保山</a>
+                <a href="/baise">百色</a>
+                <a href="/bayannaoer">巴彦淖尔</a>
+                <a href="/baiyin">白银</a>
+                <a href="/bozhou">亳州</a>
+                <a href="/beihai">北海</a>
+                <a href="/benxi">本溪</a>
+                <a href="/bangbu">蚌埠</a>
+                <a href="/baoding">保定</a>
+                <a href="/binzhou">滨州</a>
+                <a href="/baotou">包头</a>
+                <a href="/baoji">宝鸡</a>
+                <a href="/beijing">北京</a>
+              </dd>
+              <dt>C</dt>
+              <dd>
+                <a href="/conghua">从化</a>
+                <a href="/changge">长葛</a>
+                <a href="/chibi">赤壁</a>
+                <a href="/chengde">承德</a>
+                <a href="/changji">昌吉</a>
+                <a href="/chizhou">池州</a>
+                <a href="/chaohu">巢湖</a>
+                <a href="/changzhi">长治</a>
+                <a href="/chifeng">赤峰</a>
+                <a href="/chaozhou">潮州</a>
+                <a href="/chuzhou">滁州</a>
+                <a href="/cangzhou">沧州</a>
+                <a href="/changshu">常熟</a>
+                <a href="/chenzhou">郴州</a>
+                <a href="/changde">常德</a>
+                <a href="/changzhou">常州</a>
+                <a href="/changchun">长春</a>
+                <a href="/changsha">长沙</a>
+                <a href="/chuxiong">楚雄</a>
+                <a href="/cixi">慈溪</a>
+                <a href="/chengdu">成都</a>
+                <a href="/chongqing">重庆</a>
+              </dd>
+              <dt>D</dt>
+              <dd>
+                <a href="/dunhuang">敦煌</a>
+                <a href="/dafeng">大丰</a>
+                <a href="/duyun">都匀</a>
+                <a href="/dongyang">东阳</a>
+                <a href="/donggang">东港</a>
+                <a href="/diqing">迪庆</a>
+                <a href="/danjiangkou">丹江口</a>
+                <a href="/dashiqiao">大石桥</a>
+                <a href="/danyang">丹阳</a>
+                <a href="/dingxi">定西</a>
+                <a href="/dujiangyan">都江堰</a>
+                <a href="/dazhou">达州</a>
+                <a href="/datong">大同</a>
+                <a href="/daqing">大庆</a>
+                <a href="/dandong">丹东</a>
+                <a href="/dezhou">德州</a>
+                <a href="/deyang">德阳</a>
+                <a href="/dongying">东营</a>
+                <a href="/dali">大理</a>
+                <a href="/dalian">大连</a>
+                <a href="/dongguan">东莞</a>
+              </dd>
+              <dt>E</dt>
+              <dd>
+                <a href="/eerduosi">鄂尔多斯</a>
+                <a href="/ezhou">鄂州</a>
+                <a href="/enshi">恩施</a>
+              </dd>
+              <dt>F</dt>
+              <dd>
+                <a href="/fujian2">福建</a>
+                <a href="/fuqing">福清</a>
+                <a href="/fuyang1">阜阳</a>
+                <a href="/fuzhou1">抚州</a>
+                <a href="/fangchenggang">防城港</a>
+                <a href="/fuxin">阜新</a>
+                <a href="/fushun">抚顺</a>
+                <a href="/fuyang">富阳</a>
+                <a href="/foshan">佛山</a>
+                <a href="/fuzhou">福州</a>
+              </dd>
+              <dt>G</dt>
+              <dd>
+                <a href="/gaizhou">盖州</a>
+                <a href="/guyuan">固原</a>
+                <a href="/gaoyou">高邮</a>
+                <a href="/guanghan">广汉</a>
+                <a href="/guigang">贵港</a>
+                <a href="/ganzhou">赣州</a>
+                <a href="/guiyang">贵阳</a>
+                <a href="/guilin">桂林</a>
+                <a href="/guangzhou">广州</a>
+              </dd>
+            </dl>
+          </div>
+          <div class="am-tab-panel am-fade" id="tab2">
+            <dt>H</dt>
+              <dd>
+                <a href="/huaying">华蓥</a>
+                <a href="/houma">侯马</a>
+                <a href="/heshan">鹤山</a>
+                <a href="/honghu">洪湖</a>
+                <a href="/huaihua1">怀化</a>
+                <a href="/huaibei">淮北</a>
+                <a href="/hengshui">衡水</a>
+                <a href="/hechi">河池</a>
+                <a href="/hegang">鹤岗</a>
+                <a href="/haimen">海门</a>
+                <a href="/hebi">鹤壁</a>
+                <a href="/haian">海安</a>
+                <a href="/huanggang">黄冈</a>
+                <a href="/hanzhong">汉中</a>
+                <a href="/hezhou">贺州</a>
+                <a href="/hulunbeier">呼伦贝尔</a>
+                <a href="/huangshi">黄石</a>
+                <a href="/heyuan">河源</a>
+                <a href="/huangshan">黄山</a>
+                <a href="/huainan">淮南</a>
+                <a href="/handan">邯郸</a>
+                <a href="/huaian">淮安</a>
+                <a href="/haikou">海口</a>
+                <a href="/huldao">葫芦岛</a>
+                <a href="/heze">菏泽</a>
+                <a href="/hengyang">衡阳</a>
+                <a href="/hefei">合肥</a>
+                <a href="/huzhou">湖州</a>
+                <a href="/haerbin">哈尔滨</a>
+                <a href="/honghe">红河</a>
+                <a href="/huizhou">惠州</a>
+                <a href="/huhehaote">呼和浩特</a>
+                <a href="/hangzhou">杭州</a>
+              </dd>
+              <dt>J</dt>
+              <dd>
+                <a href="/jinjinag">晋江</a>
+                <a href="/jilin2">吉林</a>
+                <a href="/jintan">金坛</a>
+                <a href="/jimo">即墨</a>
+                <a href="/jian">吉安</a>
+                <a href="/jinzhong">晋中</a>
+                <a href="/jurong">句容</a>
+                <a href="/jiuquan">酒泉</a>
+                <a href="/jiaozhou">胶州</a>
+                <a href="/jiayuguan">嘉峪关</a>
+                <a href="/jixi">鸡西</a>
+                <a href="/jingmen">荆门</a>
+                <a href="/jingzhou">荆州</a>
+                <a href="/jiyuan">济源</a>
+                <a href="/jinzhou">锦州</a>
+                <a href="/jiaozuo">焦作</a>
+                <a href="/jieyang">揭阳</a>
+                <a href="/jiangyin">江阴</a>
+                <a href="/jingdezhen">景德镇</a>
+                <a href="/jincheng">晋城</a>
+                <a href="/jiangmen">江门</a>
+                <a href="/jinan">济南</a>
+                <a href="/jiamusi">佳木斯</a>
+                <a href="/jining">济宁</a>
+                <a href="/jiujiang">九江</a>
+                <a href="/jingjiang">靖江</a>
+                <a href="/jiande">建德</a>
+                <a href="/jinhua">金华</a>
+                <a href="/jiaxing">嘉兴</a>
+              </dd>
+              <dt>K</dt>
+              <dd>
+                <a href="/kashi">喀什</a>
+                <a href="/kaili">凯里</a>
+                <a href="/kaiping">开平</a>
+                <a href="/kaifeng">开封</a>
+                <a href="/kunshan">昆山</a>
+                <a href="/kunming">昆明</a>
+              </dd>
+              <dt>L</dt>
+              <dd>
+                <a href="/lichuan">利川</a>
+                <a href="/leping">乐平</a>
+                <a href="/linqing">临清</a>
+                <a href="/longkou">龙口</a>
+                <a href="/longquan">龙泉</a>
+                <a href="/lvliang">吕梁</a>
+                <a href="/lasa">拉萨</a>
+                <a href="/lijiang">丽江</a>
+                <a href="/lincang">临沧</a>
+                <a href="/longnan">陇南</a>
+                <a href="/luohe">漯河</a>
+                <a href="/liaoyang">辽阳</a>
+                <a href="/laiyang">莱阳</a>
+                <a href="/linhai">临海</a>
+                <a href="/liupanshui">六盘水</a>
+                <a href="/leiyang">耒阳</a>
+                <a href="/liaoyuan">辽源</a>
+                <a href="/liuan">六安</a>
+                <a href="/linan">临安</a>
+                <a href="/liyang">溧阳</a>
+                <a href="/luzhou">泸州</a>
+                <a href="/longyan">龙岩</a>
+                <a href="/lishui">丽水</a>
+                <a href="/lianyungang">连云港</a>
+                <a href="/linyi">临沂</a>
+                <a href="/liuzhou">柳州</a>
+                <a href="/laiwu">莱芜</a>
+                <a href="/liaocheng">聊城</a>
+                <a href="/leshan">乐山</a>
+                <a href="/linfen">临汾</a>
+                <a href="/luoyang2">洛阳</a>
+                <a href="/langfang">廊坊</a>
+                <a href="/loudi">娄底</a>
+                <a href="/lanzhou">兰州</a>
+              </dd>
+            </dl>
+          </div>
+          <div class="am-tab-panel am-fade" id="tab3">
+            <dt>M</dt>
+              <dd>
+                <a href="/macheng">麻城</a>
+                <a href="/meishan">眉山</a>
+                <a href="/meizhou">梅州</a>
+                <a href="/maoming">茂名</a>
+                <a href="/mudanjiang">牡丹江</a>
+                <a href="/mianyang">绵阳</a>
+                <a href="/maanshan">马鞍山</a>
+              </dd>
+              <dt>N</dt>
+              <dd>
+                <a href="/ningguo">宁国</a>
+                <a href="/nanping">南平</a>
+                <a href="/ningde">宁德</a>
+                <a href="/neijiang">内江</a>
+                <a href="/nanchong">南充</a>
+                <a href="/nanyang">南阳</a>
+                <a href="/nanchang">南昌</a>
+                <a href="/nanjing">南京</a>
+                <a href="/nanning">南宁</a>
+                <a href="/ningbo">宁波</a>
+                <a href="/nantong">南通</a>
+              </dd>
+              <dt>P</dt>
+              <dd>
+                <a href="/puer">普洱</a>
+                <a href="/pizhou">邳州</a>
+                <a href="/pingliang">平凉</a>
+                <a href="/panzhihua">攀枝花</a>
+                <a href="/pingxiang">萍乡</a>
+                <a href="/panjin">盘锦</a>
+                <a href="/puyang">濮阳</a>
+                <a href="/pingdingshan">平顶山</a>
+                <a href="/putian">莆田</a>
+              </dd>
+              <dt>Q</dt>
+              <dd>
+                <a href="/qingzhou">青州</a>
+                <a href="/qionghai">琼海</a>
+                <a href="/qujing">曲靖</a>
+                <a href="/qianjiang">潜江</a>
+                <a href="/qinzhou">钦州</a>
+                <a href="/qianan">迁安</a>
+                <a href="/qidong">启东</a>
+                <a href="/qiqihaer">齐齐哈尔</a>
+                <a href="/qinhuangdao">秦皇岛</a>
+                <a href="/quanzhou">泉州</a>
+                <a href="/qingyuan">清远</a>
+                <a href="/qingdao">青岛</a>
+                <a href="/quzhou">衢州</a>
+              </dd>
+              <dt>R</dt>
+              <dd>
+                <a href="/renhuai">仁怀</a>
+                <a href="/rugao">如皋</a>
+                <a href="/rizhao">日照</a>
+                <a href="/ruian">瑞安</a>
+              </dd>
+              <dt>S</dt>
+              <dd>
+                <a href="/shifang">什邡</a>
+                <a href="/shangzhi">尚志</a>
+                <a href="/shouguang">寿光</a>
+                <a href="/sanhe">三河市</a>
+                <a href="/shaoshan">韶山</a>
+                <a href="/shangyu">上虞</a>
+                <a href="/suzhou1">宿州</a>
+                <a href="/shanwei">汕尾</a>
+                <a href="/shangluo">商洛</a>
+                <a href="/sheyang">射阳</a>
+                <a href="/suihua">绥化</a>
+                <a href="/suizhou">随州</a>
+                <a href="/sanmenxia">三门峡</a>
+                <a href="/shizuishan">石嘴山</a>
+                <a href="/siping">四平</a>
+                <a href="/suining">遂宁</a>
+                <a href="/shihezi">石河子</a>
+                <a href="/songyuan">松原</a>
+                <a href="/shangrao">上饶</a>
+                <a href="/shaoguan">韶关</a>
+                <a href="/sanya">三亚</a>
+                <a href="/shiyan">十堰</a>
+                <a href="/shangqiu">商丘</a>
+                <a href="/suqian">宿迁</a>
+                <a href="/shantou">汕头</a>
+                <a href="/shaoyang">邵阳</a>
+                <a href="/sanming">三明</a>
+                <a href="/shaoxing">绍兴</a>
+                <a href="/suzhou">苏州</a>
+                <a href="/shijiazhuang">石家庄</a>
+                <a href="/shenzhen">深圳</a>
+                <a href="/shenyang">沈阳</a>
+                <a href="/shanghai">上海</a>
+              </dd>
+              <dt>T</dt>
+              <dd>
+                <a href="/taixing">泰兴</a>
+                <a href="/tongren">铜仁</a>
+                <a href="/tongliao">通辽</a>
+                <a href="/tongchuan">铜川</a>
+                <a href="/tieling">铁岭</a>
+                <a href="/tianmen">天门</a>
+                <a href="/tonghua">通化</a>
+                <a href="/tianshui">天水</a>
+                <a href="/tengzhou">滕州</a>
+                <a href="/tongling">铜陵</a>
+                <a href="/tongxiang">桐乡</a>
+                <a href="/taian">泰安</a>
+                <a href="/taizhou2">泰州</a>
+                <a href="/taizhou">台州</a>
+                <a href="/tangshan">唐山</a>
+                <a href="/taiyuan">太原</a>
+                <a href="/tianjin">天津</a>
+              </dd>
+            </dl>
+          </div>
+          <div class="am-tab-panel am-fade" id="tab4">
+            <dt>W</dt>
+              <dd>
+                <a href="/wulanhaote">乌兰浩特</a>
+                <a href="/wuhai">乌海</a>
+                <a href="/wuwei">武威</a>
+                <a href="/weinan">渭南</a>
+                <a href="/wulumuqi">乌鲁木齐</a>
+                <a href="/wuhu">芜湖</a>
+                <a href="/wenzhou">温州</a>
+                <a href="/wujiang">吴江</a>
+                <a href="/weifang">潍坊</a>
+                <a href="/weihai">威海</a>
+                <a href="/wuxi">无锡</a>
+                <a href="/wuzhou">梧州</a>
+                <a href="/wuhan">武汉</a>
+              </dd>
+              <dt>X</dt>
+              <dd>
+                <a href="/xichang">西昌</a>
+                <a href="/xingcheng">兴城</a>
+                <a href="/xiangxi">湘西</a>
+                <a href="/xishuangbanna">西双版纳</a>
+                <a href="/xiantao">仙桃</a>
+                <a href="/xianning">咸宁</a>
+                <a href="/xuchang">许昌</a>
+                <a href="/xiaogan">孝感</a>
+                <a href="/xuancheng">宣城</a>
+                <a href="/xinyu">新余</a>
+                <a href="/xinyang">信阳</a>
+                <a href="/xianyang">咸阳</a>
+                <a href="/xining">西宁</a>
+                <a href="/xiangtan">湘潭</a>
+                <a href="/xinxiang">新乡</a>
+                <a href="/xiangyang">襄阳</a>
+                <a href="/xingtai">邢台</a>
+                <a href="/xiamen">厦门</a>
+                <a href="/xuzhou">徐州</a>
+                <a href="/xian2">西安</a>
+              </dd>
+              <dt>Y</dt>
+              <dd>
+                <a href="/yanzhou">兖州</a>
+                <a href="/yuyao">余姚</a>
+                <a href="/yiwu">义乌</a>
+                <a href="/yulin1">玉林</a>
+                <a href="/yunfu">云浮</a>
+                <a href="/yingtan">鹰潭</a>
+                <a href="/yangzhong">扬中</a>
+                <a href="/yuxi">玉溪</a>
+                <a href="/yiyang">益阳</a>
+                <a href="/yongzhou">永州</a>
+                <a href="/yanan">延安</a>
+                <a href="/yibin">宜宾</a>
+                <a href="/yichun">宜春</a>
+                <a href="/yanbian">延边</a>
+                <a href="/yulin">榆林</a>
+                <a href="/yueyang">岳阳</a>
+                <a href="/yixing">宜兴</a>
+                <a href="/yuncheng">运城</a>
+                <a href="/yinchuan">银川</a>
+                <a href="/yancheng">盐城</a>
+                <a href="/yili">伊犁</a>
+                <a href="/yingkou">营口</a>
+                <a href="/yangquan">阳泉</a>
+                <a href="/yichang">宜昌</a>
+                <a href="/yangzhou">扬州</a>
+                <a href="/yangjiang">阳江</a>
+                <a href="/yizheng">仪征</a>
+                <a href="/yantai">烟台</a>
+              </dd>
+              <dt>Z</dt>
+              <dd>
+                <a href="/zoucheng">邹城</a>
+                <a href="/zhongwei">中卫</a>
+                <a href="/zhangye">张掖</a>
+                <a href="/zhangjiajie">张家界</a>
+                <a href="/zhucheng">诸城</a>
+                <a href="/ziyang">资阳</a>
+                <a href="/zunyi">遵义</a>
+                <a href="/zhoushan">舟山</a>
+                <a href="/zhangjiakou">张家口</a>
+                <a href="/zhangjiagang">张家港</a>
+                <a href="/zhangzhou">漳州</a>
+                <a href="/zaozhuang">枣庄</a>
+                <a href="/zhuhai">珠海</a>
+                <a href="/zibo">淄博</a>
+                <a href="/zigong">自贡</a>
+                <a href="/zhumadian">驻马店</a>
+                <a href="/zhuzhou">株洲</a>
+                <a href="/zhaoqing">肇庆</a>
+                <a href="/zhenjiang">镇江</a>
+                <a href="/zhongshan">中山</a>
+                <a href="/zhengzhou">郑州</a>
+                <a href="/zhanjiang">湛江</a>
+                <a href="/zhoukou">周口</a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  $("#btn-left").on("click",function(){
+ $("body").attr("class","activeL");
+ $(".am-btn").attr("class")
+})
+  $("#btn-right").on("click",function(){
+ $("body").attr("class","activeR");
+ $(".am-btn").attr("class")
+})
+  $("#btn-addC").on("click",function(){
+ $("body").attr("class","activeA");
+ $(".am-btn").attr("class")
+})
+  $("#btn-right2").on("click",function(){
+ $("body").attr("class","activeL");
+ $(".am-btn").attr("class")
+})
+
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.jsonp("http://api.map.baidu.com/geocoder/v2/?ak=I2uiDQu3sNF53quLG2XloNPj&location=39.9970305%2C116.3388357&output=json&callback=JSON_CALLBACK").
+    success(function(data){
+    	var json=data['result']['addressComponent']['city'];
+    	$scope.citys=[json];
+    	console.log(json)
+    })
+});
+
+
+
+</script>
+</html>
+
+
+
+
+

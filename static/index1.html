@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>为人民服雾</title>
+  <link rel="stylesheet" href="http://cdn.gbtags.com/amazeui/2.0.0/amazeui.css">
+  <link rel="stylesheet" href="../public/stylesheets/style.css">
+  <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.gbtags.com/amazeui/2.4.2/amazeui.min.js"></script>
+  <script type="text/javascript" src="../public/components/angular/angular.min.js"></script>
+</head>
+
+<body>
+  <div class="container" ng-controller= "customersCtrl">
+    <div class="page1 page1bg">
+      <header>
+        <button class="am-btn am-icon-navicon am-btn-link am-btn-sm am-margin-left-sm am-topbar-btn am-radius " id="btn-left"></button>  
+        <button class="am-btn am-btn-link am-topbar-btn am-btn-sm am-topbar-toggle am-icon-gear am-radius "></button>  
+      </header>
+      <div class="am-cf">
+        <div class="am-center showdata">
+          <div class="showfont" ng-model="city">{{city}}</div>
+          <div>
+            <div><span class = "fontmd" ng-model="aqi">{{aqi}}</span><span class="fontsm">(aqi)</span></div>
+            <div ng-model="airQuality">{{airQuality}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="page2"  id="page2">
+      <header class="am-topbar">   
+        <button class="am-btn am-icon-plus am-btn-link am-btn-sm am-margin-left-sm am-topbar-btn " id="btn-addC"></button> 
+        <button class="am-btn am-btn-link am-topbar-btn am-btn-sm am-topbar-toggle am-icon-chevron-right am-radius am-icon-sm" id="btn-right"></button>   
+      </header>
+      <div class="am-g am-g-fixed am-margin-bottom-sm widthC ft-size" >
+        <div class="am-u-sm-12" ng-repeat ="x in citys" ng-click ="changeCity($event)" >{{x}}</div>
+      
+      </div>
+    </div>
+
+
+    <div class="page3">
+      <header class="am-topbar">
+        <button class="am-btn am-btn-link am-topbar-btn am-btn-sm am-topbar-toggle am-icon-chevron-right am-radius am-icon-sm" id="btn-right2"></button>   
+      </header>
+
+      <div class="am-g">
+        <div class="am-u-lg-6">
+          <div class="am-input-group am-input-group-primary">
+            <span class="am-input-group-btn">
+              <button class="am-btn am-btn-primary" type="button"><span class="am-icon-search"></span></button>
+            </span>
+            <input type="text" class="am-form-field">
+          </div>
+        </div>
+      </div>
+
+      <hr data-am-widget="divider" class="am-divider am-divider-default" />
+
+      <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs">
+          <li class="am-active"><a href="#tab1">A~G</a></li>
+          <li><a href="#tab2">H~L</a></li>
+          <li><a href="#tab3">M~T</a></li>
+          <li><a href="#tab4">W~Z</a></li>
+        </ul>
+
+        <div class="am-tabs-bd getCityName am-scrollable-vertical">
+          <div class="am-tab-panel  am-active" id="tab1">
+            <dt class="remove">A</dt>
+              <dd>
+                <a href="#">安宁</a>
+                <a href="#">安康</a>
+                <a href="#">安顺</a>
+                <a href="#">安阳</a>
+                <a href="#">安庆</a>
+                <a href="#">鞍山</a>
+              </dd>
+              <dt class="remove">B</dt>
+              <dd>
+                <a href="#">毕节</a>
+                <a href="#">霸州</a>
+                <a href="#">巴中</a>
+                <a href="#">白山</a>
+                <a href="#">保山</a>
+                <a href="#">百色</a>
+                <a href="#">巴彦淖尔</a>
+                <a href="#">白银</a>
+                <a href="#">亳州</a>
+                <a href="#">北海</a>
+                <a href="#">本溪</a>
+                <a href="#">蚌埠</a>
+                <a href="#">保定</a>
+                <a href="#">滨州</a>
+                <a href="#">包头</a>
+                <a href="#">宝鸡</a>
+                <a href="#">北京</a>
+              </dd>
+              <dt class="remove">C</dt>
+              <dd>
+                <a href="#">从化</a>
+                <a href="#">长葛</a>
+                <a href="#">赤壁</a>
+                <a href="#">承德</a>
+                <a href="#">昌吉</a>
+                <a href="#">池州</a>
+                <a href="#">巢湖</a>
+                <a href="#">长治</a>
+                <a href="#">赤峰</a>
+                <a href="#">潮州</a>
+                <a href="#">滁州</a>
+                <a href="#">沧州</a>
+                <a href="#">常熟</a>
+                <a href="#">郴州</a>
+                <a href="#">常德</a>
+                <a href="#">常州</a>
+                <a href="#">长春</a>
+                <a href="#">长沙</a>
+                <a href="#">楚雄</a>
+                <a href="#">慈溪</a>
+                <a href="#">成都</a>
+                <a href="#">重庆</a>
+              </dd>
+              <dt class="remove">D</dt>
+              <dd>
+                <a href="#">敦煌</a>
+                <a href="#">大丰</a>
+                <a href="#">都匀</a>
+                <a href="#">东阳</a>
+                <a href="#">东港</a>
+                <a href="#">迪庆</a>
+                <a href="#">丹江口</a>
+                <a href="#">大石桥</a>
+                <a href="#">丹阳</a>
+                <a href="#">定西</a>
+                <a href="#">都江堰</a>
+                <a href="#">达州</a>
+                <a href="#">大同</a>
+                <a href="#">大庆</a>
+                <a href="#">丹东</a>
+                <a href="#">德州</a>
+                <a href="#">德阳</a>
+                <a href="#">东营</a>
+                <a href="#">大理</a>
+                <a href="#">大连</a>
+                <a href="#">东莞</a>
+              </dd>
+              <dt class="remove">E</dt>
+              <dd>
+                <a href="#">鄂尔多斯</a>
+                <a href="#">鄂州</a>
+                <a href="#">恩施</a>
+              </dd>
+              <dt class="remove">F</dt>
+              <dd>
+                <a href="#">福建</a>
+                <a href="#">福清</a>
+                <a href="#">阜阳</a>
+                <a href="#">抚州</a>
+                <a href="#">防城港</a>
+                <a href="#">阜新</a>
+                <a href="#">抚顺</a>
+                <a href="#">富阳</a>
+                <a href="#">佛山</a>
+                <a href="#">福州</a>
+              </dd>
+              <dt class="remove">G</dt>
+              <dd>
+                <a href="#">盖州</a>
+                <a href="#">固原</a>
+                <a href="#">高邮</a>
+                <a href="#">广汉</a>
+                <a href="#">贵港</a>
+                <a href="#">赣州</a>
+                <a href="#">贵阳</a>
+                <a href="#">桂林</a>
+                <a href="#">广州</a>
+              </dd>
+          </div>
+          <div class="am-tab-panel " id="tab2">
+            <dt class="remove">H</dt>
+              <dd>
+                <a href="#">华蓥</a>
+                <a href="#">侯马</a>
+                <a href="#">鹤山</a>
+                <a href="#">洪湖</a>
+                <a href="#">怀化</a>
+                <a href="#">淮北</a>
+                <a href="#">衡水</a>
+                <a href="#">河池</a>
+                <a href="#">鹤岗</a>
+                <a href="#">海门</a>
+                <a href="#">鹤壁</a>
+                <a href="#">海安</a>
+                <a href="#">黄冈</a>
+                <a href="#">汉中</a>
+                <a href="#">贺州</a>
+                <a href="#">呼伦贝尔</a>
+                <a href="#">黄石</a>
+                <a href="#">河源</a>
+                <a href="#">黄山</a>
+                <a href="#">淮南</a>
+                <a href="#">邯郸</a>
+                <a href="#">淮安</a>
+                <a href="#">海口</a>
+                <a href="#">葫芦岛</a>
+                <a href="#">菏泽</a>
+                <a href="#">衡阳</a>
+                <a href="#">合肥</a>
+                <a href="#">湖州</a>
+                <a href="#">哈尔滨</a>
+                <a href="#">红河</a>
+                <a href="#">惠州</a>
+                <a href="#">呼和浩特</a>
+                <a href="#">杭州</a>
+              </dd>
+              <dt class="remove">J</dt>
+              <dd>
+                <a href="#">晋江</a>
+                <a href="#">吉林</a>
+                <a href="#">金坛</a>
+                <a href="#">即墨</a>
+                <a href="#">吉安</a>
+                <a href="#">晋中</a>
+                <a href="#">句容</a>
+                <a href="#">酒泉</a>
+                <a href="#">胶州</a>
+                <a href="#">嘉峪关</a>
+                <a href="#">鸡西</a>
+                <a href="#">荆门</a>
+                <a href="#">荆州</a>
+                <a href="#">济源</a>
+                <a href="#">锦州</a>
+                <a href="#">焦作</a>
+                <a href="#">揭阳</a>
+                <a href="#">江阴</a>
+                <a href="#">景德镇</a>
+                <a href="#">晋城</a>
+                <a href="#">江门</a>
+                <a href="#">济南</a>
+                <a href="#">佳木斯</a>
+                <a href="#">济宁</a>
+                <a href="#">九江</a>
+                <a href="#">靖江</a>
+                <a href="#">建德</a>
+                <a href="#">金华</a>
+                <a href="#">嘉兴</a>
+              </dd>
+              <dt class="remove">K</dt>
+              <dd>
+                <a href="#">喀什</a>
+                <a href="#">凯里</a>
+                <a href="#">开平</a>
+                <a href="#">开封</a>
+                <a href="#">昆山</a>
+                <a href="#">昆明</a>
+              </dd>
+              <dt class="remove">L</dt>
+              <dd>
+                <a href="#">利川</a>
+                <a href="#">乐平</a>
+                <a href="#">临清</a>
+                <a href="#">龙口</a>
+                <a href="#">龙泉</a>
+                <a href="#">吕梁</a>
+                <a href="#">拉萨</a>
+                <a href="#">丽江</a>
+                <a href="#">临沧</a>
+                <a href="#">陇南</a>
+                <a href="#">漯河</a>
+                <a href="#">辽阳</a>
+                <a href="#">莱阳</a>
+                <a href="#">临海</a>
+                <a href="#">六盘水</a>
+                <a href="#">耒阳</a>
+                <a href="#">辽源</a>
+                <a href="#">六安</a>
+                <a href="#">临安</a>
+                <a href="#">溧阳</a>
+                <a href="#">泸州</a>
+                <a href="#">龙岩</a>
+                <a href="#">丽水</a>
+                <a href="#">连云港</a>
+                <a href="#">临沂</a>
+                <a href="#">柳州</a>
+                <a href="#">莱芜</a>
+                <a href="#">聊城</a>
+                <a href="#">乐山</a>
+                <a href="#">临汾</a>
+                <a href="#">洛阳</a>
+                <a href="#">廊坊</a>
+                <a href="#">娄底</a>
+                <a href="#">兰州</a>
+              </dd>
+            </dl>
+          </div>
+          <div class="am-tab-panel " id="tab3">
+            <dt class="remove">M</dt>
+              <dd>
+                <a href="#">麻城</a>
+                <a href="#">眉山</a>
+                <a href="#">梅州</a>
+                <a href="#">茂名</a>
+                <a href="#">牡丹江</a>
+                <a href="#">绵阳</a>
+                <a href="#">马鞍山</a>
+              </dd>
+              <dt class="remove">N</dt>
+              <dd>
+                <a href="#">宁国</a>
+                <a href="#">南平</a>
+                <a href="#">宁德</a>
+                <a href="#">内江</a>
+                <a href="#">南充</a>
+                <a href="#">南阳</a>
+                <a href="#">南昌</a>
+                <a href="#">南京</a>
+                <a href="#">南宁</a>
+                <a href="#">宁波</a>
+                <a href="#">南通</a>
+              </dd>
+              <dt class="remove">P</dt>
+              <dd>
+                <a href="#">普洱</a>
+                <a href="#">邳州</a>
+                <a href="#">平凉</a>
+                <a href="#">攀枝花</a>
+                <a href="#">萍乡</a>
+                <a href="#">盘锦</a>
+                <a href="#">濮阳</a>
+                <a href="#">平顶山</a>
+                <a href="#">莆田</a>
+              </dd>
+              <dt class="remove">Q</dt>
+              <dd>
+                <a href="#">青州</a>
+                <a href="#">琼海</a>
+                <a href="#">曲靖</a>
+                <a href="#">潜江</a>
+                <a href="#">钦州</a>
+                <a href="#">迁安</a>
+                <a href="#">启东</a>
+                <a href="#">齐齐哈尔</a>
+                <a href="#">秦皇岛</a>
+                <a href="#">泉州</a>
+                <a href="#">清远</a>
+                <a href="#">青岛</a>
+                <a href="#">衢州</a>
+              </dd>
+              <dt class="remove">R</dt>
+              <dd>
+                <a href="#">仁怀</a>
+                <a href="#">如皋</a>
+                <a href="#">日照</a>
+                <a href="#">瑞安</a>
+              </dd>
+              <dt class="remove">S</dt>
+              <dd>
+                <a href="#">什邡</a>
+                <a href="#">尚志</a>
+                <a href="#">寿光</a>
+                <a href="#">三河市</a>
+                <a href="#">韶山</a>
+                <a href="#">上虞</a>
+                <a href="#">宿州</a>
+                <a href="#">汕尾</a>
+                <a href="#">商洛</a>
+                <a href="#">射阳</a>
+                <a href="#">绥化</a>
+                <a href="#">随州</a>
+                <a href="#">三门峡</a>
+                <a href="#">石嘴山</a>
+                <a href="#">四平</a>
+                <a href="#">遂宁</a>
+                <a href="#">石河子</a>
+                <a href="#">松原</a>
+                <a href="#">上饶</a>
+                <a href="#">韶关</a>
+                <a href="#">三亚</a>
+                <a href="#">十堰</a>
+                <a href="#">商丘</a>
+                <a href="#">宿迁</a>
+                <a href="#">汕头</a>
+                <a href="#">邵阳</a>
+                <a href="#">三明</a>
+                <a href="#">绍兴</a>
+                <a href="#">苏州</a>
+                <a href="#">石家庄</a>
+                <a href="#">深圳</a>
+                <a href="#">沈阳</a>
+                <a href="#">上海</a>
+              </dd>
+              <dt class="remove">T</dt>
+              <dd>
+                <a href="#">泰兴</a>
+                <a href="#">铜仁</a>
+                <a href="#">通辽</a>
+                <a href="#">铜川</a>
+                <a href="#">铁岭</a>
+                <a href="#">天门</a>
+                <a href="#">通化</a>
+                <a href="#">天水</a>
+                <a href="#">滕州</a>
+                <a href="#">铜陵</a>
+                <a href="#">桐乡</a>
+                <a href="#">泰安</a>
+                <a href="#">泰州</a>
+                <a href="#">台州</a>
+                <a href="#">唐山</a>
+                <a href="#">太原</a>
+                <a href="#">天津</a>
+              </dd>
+            </dl>
+          </div>
+          <div class="am-tab-panel " id="tab4">
+            <dt class="remove">W</dt>
+              <dd>
+                <a href="#">乌兰浩特</a>
+                <a href="#">乌海</a>
+                <a href="#">武威</a>
+                <a href="#">渭南</a>
+                <a href="#">乌鲁木齐</a>
+                <a href="#">芜湖</a>
+                <a href="#">温州</a>
+                <a href="#">吴江</a>
+                <a href="#">潍坊</a>
+                <a href="#">威海</a>
+                <a href="#">无锡</a>
+                <a href="#">梧州</a>
+                <a href="#">武汉</a>
+              </dd>
+              <dt class="remove">X</dt>
+              <dd>
+                <a href="#">西昌</a>
+                <a href="#">兴城</a>
+                <a href="#">湘西</a>
+                <a href="#">西双版纳</a>
+                <a href="#">仙桃</a>
+                <a href="#">咸宁</a>
+                <a href="#">许昌</a>
+                <a href="#">孝感</a>
+                <a href="#">宣城</a>
+                <a href="#">新余</a>
+                <a href="#">信阳</a>
+                <a href="#">咸阳</a>
+                <a href="#">西宁</a>
+                <a href="#">湘潭</a>
+                <a href="#">新乡</a>
+                <a href="#">襄阳</a>
+                <a href="#">邢台</a>
+                <a href="#">厦门</a>
+                <a href="#">徐州</a>
+                <a href="#">西安</a>
+              </dd>
+              <dt class="remove">Y</dt>
+              <dd>
+                <a href="#">兖州</a>
+                <a href="#">余姚</a>
+                <a href="#">义乌</a>
+                <a href="#">玉林</a>
+                <a href="#">云浮</a>
+                <a href="#">鹰潭</a>
+                <a href="#">扬中</a>
+                <a href="#">玉溪</a>
+                <a href="#">益阳</a>
+                <a href="#">永州</a>
+                <a href="#">延安</a>
+                <a href="#">宜宾</a>
+                <a href="#">宜春</a>
+                <a href="#">延边</a>
+                <a href="#">榆林</a>
+                <a href="#">岳阳</a>
+                <a href="#">宜兴</a>
+                <a href="#">运城</a>
+                <a href="#">银川</a>
+                <a href="#">盐城</a>
+                <a href="#">伊犁</a>
+                <a href="#">营口</a>
+                <a href="#">阳泉</a>
+                <a href="#">宜昌</a>
+                <a href="#">扬州</a>
+                <a href="#">阳江</a>
+                <a href="#">仪征</a>
+                <a href="#">烟台</a>
+              </dd>
+              <dt class="remove">Z</dt>
+              <dd>
+                <a href="#">邹城</a>
+                <a href="#">中卫</a>
+                <a href="#">张掖</a>
+                <a href="#">张家界</a>
+                <a href="#">诸城</a>
+                <a href="#">资阳</a>
+                <a href="#">遵义</a>
+                <a href="#">舟山</a>
+                <a href="#">张家口</a>
+                <a href="#">张家港</a>
+                <a href="#">漳州</a>
+                <a href="#">枣庄</a>
+                <a href="#">珠海</a>
+                <a href="#">淄博</a>
+                <a href="#">自贡</a>
+                <a href="#">驻马店</a>
+                <a href="#">株洲</a>
+                <a href="#">肇庆</a>
+                <a href="#">镇江</a>
+                <a href="#">中山</a>
+                <a href="#">郑州</a>
+                <a href="#">湛江</a>
+                <a href="#">周口</a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="../public/js/main.js"></script>
+<script type="text/javascript" src="../public/js/locationInit.js"></script>
+</html>
+
+
+
+
+
